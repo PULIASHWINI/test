@@ -5,7 +5,7 @@ on:
   push:
 
 jobs:
-  greet:
+  Hello:
     runs-on: ubuntu-latest
     steps:
       - name: Say Hello to Collaborator
