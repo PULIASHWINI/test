@@ -1,9 +1,7 @@
 name: Print Collaborator and Project Name
 
 on:
-  push:
-    branches:
-      - main
+  workflow_dispatch:
 
 jobs:
   print-info:
