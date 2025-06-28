@@ -28,4 +28,6 @@ jobs:
         run: echo "${{ secrets.GITHUB_TOKEN }}" | gh auth login --with-token
 
       - name: List collaborators
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: gh api repos/${{ github.repository }}/collaborators --paginate --jq '.[] | .login'
