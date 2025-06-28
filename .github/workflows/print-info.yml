@@ -13,7 +13,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Print project (repository) name
+      - name: Print project (javatest) name
         run: echo "Project Name: ${{ github.javatest}}"
 
       - name: Authenticate GitHub CLI
