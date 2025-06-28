@@ -1,33 +1,13 @@
-name: Print Collaborator and Project Name
+
+
+name: Welcome Collaborator
 
 on:
   push:
-    branches:
-      - main
 
 jobs:
-  print-info:
+  greet:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Print full project (repository) name
-        run: echo "Project Name (owner/repo): ${{ github.repository }}"
-
-      - name: Print repo name only
-        run: echo "Repo Name only: $(basename $GITHUB_REPOSITORY)"
-        env:
-          GITHUB_REPOSITORY: ${{ github.repository }}
-
-      - name: Setup GitHub CLI
-        uses: cli/cli-action@v2
-
-      - name: Authenticate GitHub CLI
-        run: echo "${{ secrets.GITHUB_TOKEN }}" | gh auth login --with-token
-
-      - name: List collaborators
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: gh api repos/${{ github.repository }}/collaborators --paginate --jq '.[] | .login'
+      - name: Say Hello to Collaborator
+        run: echo "Hello, ${{ github.actor }} 👋"
