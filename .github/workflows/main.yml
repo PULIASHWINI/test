@@ -1,31 +1,12 @@
-name: Print Collaborator and Project Name
+
+name: Welcome Collaborator
 
 on:
-  workflow_dispatch:
+  push:
 
 jobs:
-  print-info:
+  greet:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Print project (repository) name
-        run: echo "Project Name: ${{ github.repository }}"
-
-      - name: Print user who triggered the workflow
-        run: echo "Triggered by: ${{ github.actor }}"
-
-      - name: Setup GitHub CLI
-        uses: cli/cli-action@v2
-
-      - name: Authenticate GitHub CLI
-        run: gh auth setup-git --hostname github.com
-
-      - name: List collaborators
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          echo "Collaborators:"
-          gh api repos/${{ github.repository }}/collaborators --jq '.[].login'
+      - name: Say Hello to Collaborator
+        run: echo "Hello, ${{ github.actor }} 👩👩"
