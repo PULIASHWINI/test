@@ -11,4 +11,5 @@ public class Add {
         // Print the result to the console
         System.out.println("The sum of " + number1 + " and " + number2 + " is: " + sum);
     }
+}
 
